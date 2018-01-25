@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Point of Sale</title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+	
+
+<div class="row">
+	<div class="container-fluid"></div> 
+	<div class="col-md-8">
+		<div id="menubox">
+		<header id="menux1"><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><h1>MENU</h1></nav></header>
+			<div class="row col-md-12" style="margin: 5px auto;">
+				<div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem1()"><img src="img/burger2.jpg" class="glow-buttonglow"></button></div>
+				<div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem2()"><img src="img/taco.jpg" class="glow-buttonglow"></button></div>
+				<div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem3()"><img src="img/hotdog2.jpg" class="glow-buttonglow"></button></div>
+				<div id="food4" class="borders paddingz"><button class ="buttontest" onclick="addItem4()"><img src="img/icecream.jpg" class="glow-buttonglow"></button></div>
+				<div id="food5" class="borders paddingz"><button class ="buttontest" onclick="addItem5()"><img src="img/spaghetti.jpg" class="glow-buttonglow"></button></div>
+				<div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem1()"><img src="img/burger2.jpg" class="glow-buttonglow"></button>	</div>
+				<div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem2()"><img src="img/taco.jpg" class="glow-buttonglow"></button></div>
+				<div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem3()"><img src="img/hotdog2.jpg" class="glow-buttonglow"></button></div>
+
+
+
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+		<div id="salebox" style="overflow:scroll; height:800px;">
+			<header><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><p id="menux2">SALES LIST</p></nav></header>
+
+			<div class="saleform">
+				<div id="order"></div>
+				<div id="order2"></div>
+			</div>
+		</div>
+		<div class="totalbox2">
+		<input id="total" type="text" value="0">TOTAL<br><br>
+
+
+
+			<button class="btn btn-danger" onclick="clearBox('cart_item')"> CLEAR </button>
+
+			<button  class="btn btn-success" id="myBtn" >Checkout</button>
+
+
+
+<!-- The Modal -->
+
+<div id="myModal" class="modal">
+
+
+
+ <!-- Modal content -->
+
+ <div class="modal-content">
+
+   <span class="close">&times;</span>
+
+   <h1 id="mowdals">YOUR ORDER HAS BEEN COMPLETED</h1>
+
+ </div>
+
+
+
+</div>
+		</div>
+	</div>
+
+
+<!--TOTAL BOX HERE-->
+<!-- <div class="totalbox"> -->
+			<!-- <input id="total" type="text" value="0">TOTAL<br><br>
+
+
+
+			<button class="btn btn-danger" onclick="clearBox('cart_item')"> CLEAR </button>
+</div>
+ -->
+
+<script>
+	var total = 0;
+	var counter=0;
+	var BURGERS = 
+		[
+		{
+			"id": "1",
+			"name": "BURGER",
+			"price": "59",
+			
+		},
+		{
+			"id": "2",
+			"name": "TACO",
+			"price": "99",
+			
+		},
+		{
+			"id": "3",
+			"name": "HOTDOG",
+			"price": "70",
+			
+		},
+		{
+			"id": "4",
+			"name": "ICE CREAM",
+			"price": "100",
+			
+		},
+		{
+			"id": "5",
+			"name": "SPAGHETTI",
+			"price": "150",
+			
+		}]
+	BURGERS[0].name
+
+	function calctotal(price){
+		console.log(price);
+		console.log(total);
+		total = parseInt(total);
+		price = parseInt(price);
+		total += price;
+	
+		document.getElementById('total').value = total;
+		// counter = parseInt(counter)+1;
+
+
+
+	}
+
+	function addItem1(){
+		var itemzz = document.getElementById('food1').innerHTML;
+		document.getElementById('order').innerHTML += BURGERS[0].name +'<br>' ;
+		var itemzz = document.getElementById('food1').innerHTML;
+		document.getElementById('order2').innerHTML += BURGERS[0].price + '<br>';
+		calctotal(BURGERS[0].price);
+
+
+	}
+		function addItem2(){
+		var itemzz = document.getElementById('food2').innerHTML;
+		
+		document.getElementById('order').innerHTML += BURGERS[1].name + '<br>';
+				var itemzz = document.getElementById('food1').innerHTML;
+		document.getElementById('order2').innerHTML += BURGERS[1].price  +'<br>';
+		calctotal(BURGERS[1].price);
+	}
+
+		function addItem3(){
+		var itemzz = document.getElementById('food3').innerHTML;
+		
+		document.getElementById('order').innerHTML += BURGERS[2].name + '<br>';
+				var itemzz = document.getElementById('food1').innerHTML;
+		document.getElementById('order2').innerHTML += BURGERS[2].price  +'<br>';
+		calctotal(BURGERS[2].price);
+	}
+		function addItem4(){
+		var itemzz = document.getElementById('food4').innerHTML;
+		
+		document.getElementById('order').innerHTML += BURGERS[3].name + '<br>';
+				var itemzz = document.getElementById('food1').innerHTML;
+		document.getElementById('order2').innerHTML += BURGERS[3].price  +'<br>';
+		calctotal(BURGERS[3].price);
+	}
+		function addItem5(){
+		var itemzz = document.getElementById('food5').innerHTML;
+		
+		document.getElementById('order').innerHTML += BURGERS[4].name + '<br>';
+				var itemzz = document.getElementById('food1').innerHTML;
+		document.getElementById('order2').innerHTML += BURGERS[4].price  +'<br>';
+		calctotal(BURGERS[4].price);
+	}
+
+
+	function clearBox(order){
+    document.getElementById('order').innerHTML = "";
+    document.getElementById('order2').innerHTML = "";
+    document.getElementById('total').value = "0";
+    total = 0;
+    // counter=0;
+}
+
+    // Get the modal
+
+var modal = document.getElementById('myModal');
+
+
+
+// Get the button that opens the modal
+
+var btn = document.getElementById("myBtn");
+
+
+
+// Get the <span> element that closes the modal
+
+var span = document.getElementsByClassName("close")[0];
+
+
+
+// When the user clicks on the button, open the modal
+
+btn.onclick = function() {
+
+   modal.style.display = "block";
+   // window.alert('JC');	
+
+
+}
+
+
+
+// When the user clicks on <span> (x), close the modal
+
+span.onclick = function() {
+
+   modal.style.display = "none";
+     document.getElementById('order').innerHTML = " ";
+     document.getElementById('order2').innerHTML = " ";
+    document.getElementById('total').value = "0";
+    total = 0;
+}
+
+
+
+// When the user clicks anywhere outside of the modal, close it
+
+window.onclick = function(event) {
+
+   if (event.target == modal) {
+
+       modal.style.display = "none";
+     document.getElementById('order').innerHTML = "";
+     document.getElementById('order2').innerHTML = " ";
+    document.getElementById('total').value = "0";
+    total = 0;
+   }
+
+}
+
+
+
+
+</script>
+</body>
+</html>
