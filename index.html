@@ -16,14 +16,14 @@
 		<div id="menubox">
 		<header id="menux1"><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><h1>MENU</h1></nav></header>
 			<div class="row col-md-12" style="margin: 5px auto;">
-				<div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem1()"><img src="img/burger2.jpg" class="glow-buttonglow"></button></div>
-				<div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem2()"><img src="img/taco.jpg" class="glow-buttonglow"></button></div>
-				<div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem3()"><img src="img/hotdog2.jpg" class="glow-buttonglow"></button></div>
-				<div id="food4" class="borders paddingz"><button class ="buttontest" onclick="addItem4()"><img src="img/icecream.jpg" class="glow-buttonglow"></button></div>
-				<div id="food5" class="borders paddingz"><button class ="buttontest" onclick="addItem5()"><img src="img/spaghetti.jpg" class="glow-buttonglow"></button></div>
-				<div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem1()"><img src="img/burger2.jpg" class="glow-buttonglow"></button>	</div>
-				<div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem2()"><img src="img/taco.jpg" class="glow-buttonglow"></button></div>
-				<div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem3()"><img src="img/hotdog2.jpg" class="glow-buttonglow"></button></div>
+				<div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem(1)"><img src="img/burger2.jpg" class="glow-buttonglow"></button></div>
+				<div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem(2)"><img src="img/taco.jpg" class="glow-buttonglow"></button></div>
+				<div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem(3)"><img src="img/hotdog2.jpg" class="glow-buttonglow"></button></div>
+				<div id="food4" class="borders paddingz"><button class ="buttontest" onclick="addItem(4)"><img src="img/icecream.jpg" class="glow-buttonglow"></button></div>
+				<div id="food5" class="borders paddingz"><button class ="buttontest" onclick="addItem(5)"><img src="img/spaghetti.jpg" class="glow-buttonglow"></button></div>
+				<div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem(1)"><img src="img/burger2.jpg" class="glow-buttonglow"></button>	</div>
+				<div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem(2)"><img src="img/taco.jpg" class="glow-buttonglow"></button></div>
+				<div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem(3)"><img src="img/hotdog2.jpg" class="glow-buttonglow"></button></div>
 
 
 
@@ -134,50 +134,20 @@
 
 
 	}
-
-	function addItem1(){
-		var itemzz = document.getElementById('food1').innerHTML;
-		document.getElementById('order').innerHTML += BURGERS[0].name +'<br>' ;
-		var itemzz = document.getElementById('food1').innerHTML;
-		document.getElementById('order2').innerHTML += BURGERS[0].price + '<br>';
-		calctotal(BURGERS[0].price);
+function addItem(tangina){
+		var itemzz = document.getElementById('food'+tangina).innerHTML;
+		document.getElementById('order').innerHTML += BURGERS[tangina-1].name +'<br>' ;
+		var itemzz = document.getElementById('food'+tangina).innerHTML;
+		document.getElementById('order2').innerHTML += BURGERS[tangina-1].price + '<br>';
+		calctotal(BURGERS[tangina-1].price);
 
 
 	}
-		function addItem2(){
-		var itemzz = document.getElementById('food2').innerHTML;
-		
-		document.getElementById('order').innerHTML += BURGERS[1].name + '<br>';
-				var itemzz = document.getElementById('food1').innerHTML;
-		document.getElementById('order2').innerHTML += BURGERS[1].price  +'<br>';
-		calctotal(BURGERS[1].price);
-	}
+	
 
-		function addItem3(){
-		var itemzz = document.getElementById('food3').innerHTML;
-		
-		document.getElementById('order').innerHTML += BURGERS[2].name + '<br>';
-				var itemzz = document.getElementById('food1').innerHTML;
-		document.getElementById('order2').innerHTML += BURGERS[2].price  +'<br>';
-		calctotal(BURGERS[2].price);
+	function addThis(product){
+		list +=product
 	}
-		function addItem4(){
-		var itemzz = document.getElementById('food4').innerHTML;
-		
-		document.getElementById('order').innerHTML += BURGERS[3].name + '<br>';
-				var itemzz = document.getElementById('food1').innerHTML;
-		document.getElementById('order2').innerHTML += BURGERS[3].price  +'<br>';
-		calctotal(BURGERS[3].price);
-	}
-		function addItem5(){
-		var itemzz = document.getElementById('food5').innerHTML;
-		
-		document.getElementById('order').innerHTML += BURGERS[4].name + '<br>';
-				var itemzz = document.getElementById('food1').innerHTML;
-		document.getElementById('order2').innerHTML += BURGERS[4].price  +'<br>';
-		calctotal(BURGERS[4].price);
-	}
-
 
 	function clearBox(order){
     document.getElementById('order').innerHTML = "";
